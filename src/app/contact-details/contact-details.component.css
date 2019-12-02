@@ -1,0 +1,36 @@
+input[type=text] {
+    width: 50%;
+    padding: 10px 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    float: right;
+    
+  }
+  
+  
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 9;
+  width: 36.8rem;
+  height: 2.375rem;
+  line-height: 3rem;
+  text-align: right;
+  pointer-events: none;
+  color: #aaa;
+}
+  input[type=text]:focus {
+    border: 3px solid #555;
+  }
+  h1{
+     text-align: center; 
+     color: blue;
+  }
+  

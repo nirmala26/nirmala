@@ -1,0 +1,98 @@
+
+<Input type="button" class="btn btn-outline-primary" 
+         (onclick)="openDialog" value ="Add Contact" data-toggle="modal" data-target="#exampleModalCenter"/>
+        
+       
+          <div class="modal fade" id="exampleModalCenter"tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered"  role="document">
+              <div class="modal-content"  style="border-color: rgb(51, 51, 90); border-width: 5px;">
+                <div class="modal-header" >
+                  <h3 class="modal-title" id="exampleModalLongTitle">Add Contact</h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              
+
+                <form #f="ngForm">
+                  
+                    <div class="form-row">
+                        
+
+                        <div class="form-group col-md-6">
+                    <div class="form-group"
+                    [class.has-error]="FirstNameControl.invalid && FirstNameControl.touched"    
+                    [class.has-success]="FirstNameControl.valid">
+                    <label for="FirstName">FirstName</label>
+                 <input id="FirstName" required type="text" class="form-control"   name="FirstName"
+                        [(ngModel)]="FirstName" #FirstNameControl="ngModel" placeholder="First Name">
+                 <span class="help-block" style="color: crimson;"
+                       *ngIf="FirstNameControl.invalid && FirstNameControl.touched">
+                   First Name is required
+                 </span>
+               </div> 
+              
+                        </div>
+              
+                  <div class="form-group col-md-6">
+             
+               <div class="form-group"
+               [class.has-error]="LastNameControl.invalid && LastNameControl.touched"    
+               [class.has-success]="LastNameControl.valid">
+               <label for="LastName">LastName</label>
+            <input id="LastName" required type="text" class="form-control" name="LastName"
+                   [(ngModel)]="LastName" #LastNameControl="ngModel" placeholder="Last Name">
+            <span class="help-block" style="color: crimson;"
+                  *ngIf="LastNameControl.invalid && LastNameControl.touched">
+              Last Name is required
+            </span>
+          </div> 
+        
+          </div>
+                    </div>      
+                  
+
+
+                    <div class="form-group"
+                    [class.has-error]="PhoneControl.invalid && PhoneControl.touched"    
+                    [class.has-success]="PhoneControl.valid">
+                    <label for="Phone">Phone Number</label>
+                    <input id="phone" required type="text" class="form-control" name="PhoneControl"
+                        [(ngModel)]="Phone" #PhoneControl="ngModel" placeholder="Phone Number"  required pattern="^[0-9]{10}$">
+                        <span class="help-block"
+                        *ngIf="PhoneControl.errors?.required  && PhoneControl.touched">
+                        Phone is required!
+                     </span>
+                     <span class="help-block" style="color: crimson;"
+                        *ngIf="PhoneControl.errors?.pattern && PhoneControl.touched">
+                        Phone Number is not valid!
+                     </span>
+                    </div>
+                    
+                    <div class="form-group"
+                    [class.has-error]="CityControl.invalid && CityControl.touched"    
+                    [class.has-success]="CityControl.valid">
+                    <label>City</label>
+                    <input id="City" required type="text" class="form-control" name="City"
+                        [(ngModel)]="City" #CityControl="ngModel" placeholder="City"/>
+                    <span class="help-block" style="color: crimson;"
+                       *ngIf="  CityControl.errors?.required  && CityControl.touched">
+                       City is required!
+                    </span>
+                  </div>
+                              
+
+
+                     </form>
+                
+
+
+
+                <div class="modal-footer">
+                  <button type="Submit" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+                  <button type="button" class="btn btn-primary" (click)="SaveDetails()"[disabled]="f.invalid">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>    
